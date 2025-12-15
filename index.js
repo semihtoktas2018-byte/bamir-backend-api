@@ -1,23 +1,19 @@
-// BAMİR Online Store’s – Backend Başlangıç Sunucusu
-// Express sunucu altyapısı kurulumu
-
+require('dotenv').config();
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
 
-// JSON desteği
+// Orduyu ayağa kaldır
 app.use(express.json());
 
-// Ana test endpoint'i
+// Ana test rotası
 app.get('/', (req, res) => {
-    res.json({
-        status: "online",
-        message: "BAMİR Backend API aktif",
-        brand: "BAMİR Online Store’s"
-    });
+    res.send('BAMİR Backend Aktif — BAMİR Online Store’s');
 });
 
-// Sunucuyu çalıştır
-app.listen(port, () => {
-    console.log(`BAMİR Backend API çalışıyor → Port: ${port}`);
+// Port ayarı
+const PORT = process.env.PORT || 4000;
+
+app.listen(PORT, () => {
+    console.log(`🔥 BAMİR Backend Çalışıyor: ${PORT}`);
 });
+
